@@ -24,8 +24,15 @@ body {
     border: 1vmin solid #adadad;
 }
 
+.piece {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
 .box1, .box2 {
-    width: 12.5%;
+    width: calc(100% / 8);
     aspect-ratio: 1/1;
 
     display: flex;
@@ -52,4 +59,110 @@ body {
 
 label {
     font-size: 3vmin;
+    padding: 1vmin;
+}
+
+#button:checked ~ .board .white-piece[data-index="4"] .piece {
+    animation: move1 1s linear .5s forwards;
+}
+
+#button:checked ~ .board .black-piece[data-index="14"] .piece {
+    animation: move2 1s linear 2s forwards;
+}
+
+#button:checked ~ .board .white-piece[data-index="11"] .piece {
+    animation: move3 1s linear 3s forwards,
+    move5 1s linear 5s forwards,
+    move8_5 1ms linear 9s forwards;
+}
+
+#button:checked ~ .board .black-piece[data-index="16"] .piece {
+    animation: move4 1s linear 4s forwards;
+}
+
+/* #button:checked ~ .board .white-piece[data-index="11"] .piece {
+    animation: move5 1s linear 5s forwards;
+} */
+
+#button:checked ~ .board .black-piece[data-index="15"] .piece {
+    animation: move6 1s linear 6s forwards,
+    move8 1s linear 8s forwards;
+}
+
+#button:checked ~ .board .white-piece[data-index="5"] .piece {
+    animation: move7 1s linear 7s forwards;
+} 
+
+#button:checked ~ .board .white-piece[data-index="12"] .piece {
+    animation: move9 1s linear 9s forwards;
+} 
+
+#button:checked ~ .board .black-piece[data-index="5"] .piece {
+    animation: move9_5 .5s linear 10s forwards;
+}
+
+@keyframes move1 {
+    to{
+        transform: translateY(-200%);
+    }
+}
+
+@keyframes move2 {
+    to{
+        transform: translateY(200%);
+    }
+}
+
+@keyframes move3 {
+    to{
+        transform: translate(400%,-400%);
+    }
+}
+
+@keyframes move4 {
+    to{
+        transform: translateY(100%);
+    }
+}
+
+@keyframes move5 {
+    to{
+        transform: translate(500%,-300%);
+    }
+}
+
+@keyframes move6 {
+    to{
+        transform: translateY(200%);
+    }
+}
+
+@keyframes move7 {
+    to{
+        transform: translateY(-200%);
+    }
+}
+
+@keyframes move8 {
+    to{
+        transform: translate(100%,300%);
+    }
+}
+
+@keyframes move8_5 {
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes move9 {
+    to{
+        transform: translate(400%,-400%);
+    }
+}
+
+@keyframes move9_5 {
+    to{
+        background-color: rgba(255, 0, 0, 0.5);
+    }
 }
